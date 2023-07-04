@@ -1,0 +1,15 @@
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Repository.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Andrej\RiderProjects\TicketApp\Service\bin\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.csproj.AssemblyReference.cache
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Service\obj\Debug\netcoreapp3.1\Service.pdb

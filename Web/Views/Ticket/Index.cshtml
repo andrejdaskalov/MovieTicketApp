@@ -1,0 +1,23 @@
+﻿@model List<Domain.MovieTicket>
+@{
+    ViewData["Title"] = "All tickets";
+}
+<div class="container">
+    
+    <button as></button>
+
+    @foreach (var ticket in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>@ticket.Seat</h3>
+            </div>
+            <div class="card-body">
+                <p>@ticket.Price</p>
+                <p>@ticket.Date</p>
+            </div>
+        </div>
+    }
+</div>
+ 
+
