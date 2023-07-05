@@ -26,14 +26,14 @@ namespace Web.Controller
             var allTickets = _ticketService.GetAllTicketAsList();
             return View(allTickets);
         }
-        
+
         [HttpGet("Create")]
         public IActionResult Create()
         {
             IEnumerable<Movie> movies = _movieService.GetAllMovies();
             return View(movies);
         }
-        
+
         [HttpPost("Create")]
         public IActionResult Create(Domain.DTO.TicketDto ticket)
         {
@@ -48,7 +48,7 @@ namespace Web.Controller
             _ticketService.CreateNewTicket(newTicket);
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet("Edit/{id}")]
         public IActionResult Edit(Guid? id)
         {
@@ -56,39 +56,44 @@ namespace Web.Controller
             {
                 return NotFound();
             }
-        
+
             var ticket = _ticketService.GetSpecificTicket(id);
             if (ticket == null)
             {
                 return NotFound();
             }
+
+            IEnumerable<Movie> movies = _movieService.GetAllMovies();
             var ticketDto = new Domain.DTO.TicketDto()
             {
                 SelectedMovie = ticket.Movie.Id,
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price
+                Price = ticket.Price,
+                MovieOptions = movies
             };
-        
+
             return View(ticketDto);
         }
-        
+
         [HttpPost("Edit/{id}")]
-        public IActionResult Edit(Guid id, Domain.MovieTicket ticket)
+        public IActionResult Edit(Guid id, Domain.DTO.TicketDto ticket)
         {
-            if (!id.Equals(ticket.Id))
+            var updatedTicket = _ticketService.GetSpecificTicket(id);
+            if (updatedTicket == null)
             {
                 return NotFound();
             }
-        
-            if (ModelState.IsValid)
-            {
-                _ticketService.UpdateExistingTicket(ticket);
-            }
+
+            updatedTicket.Date = ticket.Date;
+            updatedTicket.Seat = ticket.Seat;
+            updatedTicket.Price = ticket.Price;
+            updatedTicket.MovieId = ticket.SelectedMovie;
+            _ticketService.UpdateExistingTicket(updatedTicket);
 
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet("Delete/{id}")]
         public IActionResult Delete(Guid? id)
         {
@@ -96,24 +101,25 @@ namespace Web.Controller
             {
                 return NotFound();
             }
-        
+
             var ticket = _ticketService.GetSpecificTicket(id);
             if (ticket == null)
             {
                 return NotFound();
             }
-            
+
             var ticketDto = new Domain.DTO.TicketDto()
             {
-                SelectedMovie = ticket.Movie.Id,
+                MovieTitle = ticket.Movie.Title,
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price
+                Price = ticket.Price,
+                Id = ticket.Id
             };
-        
+
             return View(ticketDto);
         }
-        
+
         [HttpPost("Delete/{id}")]
         public IActionResult Delete(Guid id)
         {
