@@ -372,29 +372,29 @@
           }
         }
       },
-      "Npgsql/4.1.3.1": {
+      "Npgsql/4.1.9": {
         "type": "package",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.6.0"
         },
         "compile": {
           "lib/netcoreapp3.0/Npgsql.dll": {
-            "related": ".pdb;.xml"
+            "related": ".xml"
           }
         },
         "runtime": {
           "lib/netcoreapp3.0/Npgsql.dll": {
-            "related": ".pdb;.xml"
+            "related": ".xml"
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.18": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "3.1.4",
-          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.4",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.4",
-          "Npgsql": "4.1.3.1"
+          "Microsoft.EntityFrameworkCore": "3.1.18",
+          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.18",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.18",
+          "Npgsql": "4.1.9"
         },
         "compile": {
           "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
@@ -459,7 +459,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.18"
         },
         "compile": {
           "bin/placeholder/Domain.dll": {}
@@ -928,39 +929,35 @@
         "microsoft.extensions.primitives.nuspec"
       ]
     },
-    "Npgsql/4.1.3.1": {
-      "sha512": "354pl/Picmt5/AIrm8urFwtxfK4n4NbmfBnLA9yvP8VtILSQF3/sFo3+lGuz+q4iyD18QeNFy0NMNBzsocFVlw==",
+    "Npgsql/4.1.9": {
+      "sha512": "Afs+nX8OWZ8PPZRj7vdtjcj0xKQDZbl8b0jXUmDBuKgzEkHatX/fPu1NtgbCin14EkoyMMxKtQnagfoMC58i+Q==",
       "type": "package",
-      "path": "npgsql/4.1.3.1",
+      "path": "npgsql/4.1.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net461/Npgsql.dll",
-        "lib/net461/Npgsql.pdb",
         "lib/net461/Npgsql.xml",
         "lib/netcoreapp3.0/Npgsql.dll",
-        "lib/netcoreapp3.0/Npgsql.pdb",
         "lib/netcoreapp3.0/Npgsql.xml",
         "lib/netstandard2.0/Npgsql.dll",
-        "lib/netstandard2.0/Npgsql.pdb",
         "lib/netstandard2.0/Npgsql.xml",
         "lib/netstandard2.1/Npgsql.dll",
-        "lib/netstandard2.1/Npgsql.pdb",
         "lib/netstandard2.1/Npgsql.xml",
-        "npgsql.4.1.3.1.nupkg.sha512",
+        "npgsql.4.1.9.nupkg.sha512",
         "npgsql.nuspec",
         "postgresql.png"
       ]
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
-      "sha512": "T+BIWO+ceje5d52/sOwwqaU/F4Rm2jAWx5qA3+pUGbzY/ZXG0QbHQsyjyg0k8aef6JTq8FRk3FtRWkocsa1QWQ==",
+    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.18": {
+      "sha512": "b/g8tKEMVew45q0g1hZGUQwpzv/UE9NIyU2UNB9Ln8NNhodjhkUrzeMS49lPKFlFRW1aUK5eniKgebki/D3Aag==",
       "type": "package",
-      "path": "npgsql.entityframeworkcore.postgresql/3.1.4",
+      "path": "npgsql.entityframeworkcore.postgresql/3.1.18",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
-        "npgsql.entityframeworkcore.postgresql.3.1.4.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.3.1.18.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
       ]
@@ -1142,7 +1139,7 @@
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.32",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.32",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.4"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.18"
     ]
   },
   "packageFolders": {
@@ -1200,7 +1197,7 @@
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
-            "version": "[3.1.4, )"
+            "version": "[3.1.18, )"
           }
         },
         "imports": [

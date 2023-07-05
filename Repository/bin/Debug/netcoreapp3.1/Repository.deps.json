@@ -11,7 +11,7 @@
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.32",
           "Microsoft.EntityFrameworkCore.Design": "3.1.32",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.4"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.18"
         },
         "runtime": {
           "Repository.dll": {}
@@ -262,28 +262,28 @@
           }
         }
       },
-      "Npgsql/4.1.3.1": {
+      "Npgsql/4.1.9": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.6.0"
         },
         "runtime": {
           "lib/netcoreapp3.0/Npgsql.dll": {
-            "assemblyVersion": "4.1.3.1",
-            "fileVersion": "4.1.3.1"
+            "assemblyVersion": "4.1.9.0",
+            "fileVersion": "4.1.9.0"
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.18": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.32",
           "Microsoft.EntityFrameworkCore.Abstractions": "3.1.32",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.32",
-          "Npgsql": "4.1.3.1"
+          "Npgsql": "4.1.9"
         },
         "runtime": {
           "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
-            "assemblyVersion": "3.1.4.0",
-            "fileVersion": "3.1.4.0"
+            "assemblyVersion": "3.1.18.0",
+            "fileVersion": "3.1.18.0"
           }
         }
       },
@@ -307,7 +307,8 @@
       "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.18"
         },
         "runtime": {
           "Domain.dll": {}
@@ -489,19 +490,19 @@
       "path": "microsoft.extensions.primitives/3.1.32",
       "hashPath": "microsoft.extensions.primitives.3.1.32.nupkg.sha512"
     },
-    "Npgsql/4.1.3.1": {
+    "Npgsql/4.1.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-354pl/Picmt5/AIrm8urFwtxfK4n4NbmfBnLA9yvP8VtILSQF3/sFo3+lGuz+q4iyD18QeNFy0NMNBzsocFVlw==",
-      "path": "npgsql/4.1.3.1",
-      "hashPath": "npgsql.4.1.3.1.nupkg.sha512"
+      "sha512": "sha512-Afs+nX8OWZ8PPZRj7vdtjcj0xKQDZbl8b0jXUmDBuKgzEkHatX/fPu1NtgbCin14EkoyMMxKtQnagfoMC58i+Q==",
+      "path": "npgsql/4.1.9",
+      "hashPath": "npgsql.4.1.9.nupkg.sha512"
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T+BIWO+ceje5d52/sOwwqaU/F4Rm2jAWx5qA3+pUGbzY/ZXG0QbHQsyjyg0k8aef6JTq8FRk3FtRWkocsa1QWQ==",
-      "path": "npgsql.entityframeworkcore.postgresql/3.1.4",
-      "hashPath": "npgsql.entityframeworkcore.postgresql.3.1.4.nupkg.sha512"
+      "sha512": "sha512-b/g8tKEMVew45q0g1hZGUQwpzv/UE9NIyU2UNB9Ln8NNhodjhkUrzeMS49lPKFlFRW1aUK5eniKgebki/D3Aag==",
+      "path": "npgsql.entityframeworkcore.postgresql/3.1.18",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.3.1.18.nupkg.sha512"
     },
     "System.Collections.Immutable/1.7.1": {
       "type": "package",

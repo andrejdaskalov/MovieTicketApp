@@ -6,32 +6,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity
-    {
+    public class TicketRepository : ITicketRepository
+    { 
         private readonly ApplicationDbContext _context;
-        protected DbSet<T> _entities;
-
-        public Repository(ApplicationDbContext context)
+        private DbSet<MovieTicket> _entities;
+        
+        public TicketRepository(ApplicationDbContext context)
         {
             _context = context;
-            _entities = _context.Set<T>();
+            _entities = _context.Set<MovieTicket>();
         }
 
-        public IEnumerable<T> GetAll()
-        { 
-            return _entities.AsEnumerable();
-        }
-
-        public T Get(Guid? id)
+        public IEnumerable<MovieTicket> GetAll()
         {
-            return _entities.Find(id);
+            return _entities.Include(e => e.Movie).AsEnumerable();
         }
 
-        public T Insert(T entity)
+        public MovieTicket Get(Guid? id)
+        {
+            return _entities.Include(e=>e.Movie).First(e => e.Id.Equals(id));
+        }
+
+        public MovieTicket Insert(MovieTicket entity)
         {
             if (entity == null)
             {
-                throw new ArgumentNullException("entity");
+                throw new System.ArgumentNullException("entity");
             }
             _entities.Add(entity);
             _context.SaveChanges();
@@ -39,11 +39,11 @@ namespace Repository
             return entity;
         }
 
-        public T Update(T entity)
+        public MovieTicket Update(MovieTicket entity)
         {
             if (entity == null)
             {
-                throw new ArgumentNullException("entity");
+                throw new System.ArgumentNullException("entity");
             }
             _entities.Update(entity);
             _context.SaveChanges();
@@ -51,11 +51,11 @@ namespace Repository
             return entity;
         }
 
-        public T Delete(T entity)
+        public MovieTicket Delete(MovieTicket entity)
         {
             if (entity == null)
             {
-                throw new ArgumentNullException("entity");
+                throw new System.ArgumentNullException("entity");
             }
             _entities.Remove(entity);
             _context.SaveChanges();

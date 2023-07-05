@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jdMYLHIIKdCiRVCQTGBVGCIjBgQROLHgQyGMTlCjXsLA1dIcOzCZxsaLNlnhTPoDTONXtcQSoP0gHrXBaZfV9Q==",
+  "dgSpecHash": "3XLUwgU+jVMELZ9lx0oFjnl4NKyENwLHdpSi0NGCG5TCW5H5HhOOgskTcAT0Knv73cBA0mbdGbT0tzHoiA+6Cw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andrej\\RiderProjects\\TicketApp\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
@@ -26,9 +26,12 @@
     "C:\\Users\\Andrej\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.32\\microsoft.extensions.logging.abstractions.3.1.32.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\microsoft.extensions.options\\3.1.32\\microsoft.extensions.options.3.1.32.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.32\\microsoft.extensions.primitives.3.1.32.nupkg.sha512",
+    "C:\\Users\\Andrej\\.nuget\\packages\\npgsql\\4.1.9\\npgsql.4.1.9.nupkg.sha512",
+    "C:\\Users\\Andrej\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\3.1.18\\npgsql.entityframeworkcore.postgresql.3.1.18.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "C:\\Users\\Andrej\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "C:\\Users\\Andrej\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "C:\\Users\\Andrej\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,9 +1,18 @@
-﻿@model Domain.MovieTicket
+﻿@model IEnumerable<Domain.Movie>
 @{
     ViewData["Title"] = "Create";
 }
 <div class="container">
     <form method="post">
+        <div class="form-group">
+            <label for="movie">Movie</label>
+            <select class="form-control" id="movie" name="selectedmovie">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.Title</option>
+                }
+            </select>
+        </div>
         <div class="form-group">
             <label for="seat">Seat</label>
             <input type="text" class="form-control" id="seat" name="seat" placeholder="Seat">

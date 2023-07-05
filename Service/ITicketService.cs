@@ -7,10 +7,10 @@ namespace Service
     public interface ITicketService
     {
         public List<MovieTicket> GetAllTicketAsList();
-        public MovieTicket GetSpecificTicket(int? id);
+        public MovieTicket GetSpecificTicket(Guid? id);
         public MovieTicket CreateNewTicket(MovieTicket newEntity);
         public MovieTicket UpdateExistingTicket(MovieTicket updatedTicket);
-        public MovieTicket DeleteTicket(int? id);
-        public Boolean TicketExist(int? id);
+        public MovieTicket DeleteTicket(Guid? id);
+        public Boolean TicketExist(Guid? id);
     }
 }

@@ -6,8 +6,8 @@ namespace Domain
 {
     public class MovieTicket : BaseEntity
     {
-        public Movie Movie { get; set; }
-        // public IdentityUser User { get; set; }
+        public Guid MovieId { get; set; }
+        public virtual Movie Movie { get; set; }
         public DateTime Date { get; set; }
         public string Seat { get; set; }
         public int Price { get; set; }

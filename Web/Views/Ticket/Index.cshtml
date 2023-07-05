@@ -4,17 +4,23 @@
 }
 <div class="container">
     
-    <button as></button>
+    <a asp-controller="Ticket" asp-action="Create" class="btn btn-info mb-5">Add new ticket</a>
 
     @foreach (var ticket in Model)
     {
         <div class="card">
             <div class="card-header">
-                <h3>@ticket.Seat</h3>
+                <h3>@ticket.Movie.Title</h3>
             </div>
             <div class="card-body">
-                <p>@ticket.Price</p>
-                <p>@ticket.Date</p>
+                <p class="font-weight-bold">Price: @ticket.Price</p>
+                <p>Date: @ticket.Date</p>
+                <p>Seat #: @ticket.Seat</p>
+                <p>Movie Duration @ticket.Movie.Duration</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="Edit" asp-route-id="@ticket.Id">Edit</a>
+                <a class="btn btn-danger" asp-controller="Ticket" asp-action="Delete" asp-route-id="@ticket.Id">Delete</a>
             </div>
         </div>
     }

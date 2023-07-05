@@ -8,9 +8,9 @@ namespace Service
 {
     public class TicketService : ITicketService
     {
-        private readonly IRepository<MovieTicket> _repository;
+        private readonly ITicketRepository _repository;
 
-        public TicketService(IRepository<MovieTicket> repository)
+        public TicketService(ITicketRepository repository)
         {
             _repository = repository;
         }
@@ -20,7 +20,7 @@ namespace Service
             return _repository.GetAll().ToList();
         }
 
-        public MovieTicket GetSpecificTicket(int? id)
+        public MovieTicket GetSpecificTicket(Guid? id)
         {
             return _repository.Get(id);
         }
@@ -35,7 +35,7 @@ namespace Service
             return _repository.Update(updatedTicket);
         }
 
-        public MovieTicket DeleteTicket(int? id)
+        public MovieTicket DeleteTicket(Guid? id)
         {
             var ticket = _repository.Get(id);
             if (ticket == null)
@@ -45,7 +45,7 @@ namespace Service
             return _repository.Delete(ticket);
         }
 
-        public bool TicketExist(int? id)
+        public bool TicketExist(Guid? id)
         {
             return _repository.Get(id) != null;
         }
