@@ -40,6 +40,26 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.0, )"
+            },
+            "ExcelDataReader": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "GemBox.Pdf": {
+              "target": "Package",
+              "version": "[17.0.1371, )"
+            },
+            "GemBox.Spreadsheet": {
+              "target": "Package",
+              "version": "[49.0.1398, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.32, )"
@@ -48,9 +68,21 @@
               "target": "Package",
               "version": "[3.1.32, )"
             },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.18, )"
+            },
+            "OpenXmlPowerTools": {
+              "target": "Package",
+              "version": "[4.5.3.2, )"
             },
             "Stripe.net": {
               "target": "Package",

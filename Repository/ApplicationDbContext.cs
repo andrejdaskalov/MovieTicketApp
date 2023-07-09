@@ -15,6 +15,7 @@ namespace Repository
         public virtual DbSet<Domain.OrderItem> OrderItems { get; set; }
         public virtual DbSet<MovieTicket> MovieTickets { get; set; }
         public virtual DbSet<Domain.Cart> Carts { get; set; }
+        public virtual DbSet<Domain.EmailMessage> EmailMessages { get; set; }
 
     }
 }

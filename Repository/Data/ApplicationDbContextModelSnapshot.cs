@@ -38,6 +38,29 @@ namespace Repository.Data
                     b.ToTable("Carts");
                 });
 
+            modelBuilder.Entity("Domain.EmailMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("text");
+
+                    b.Property<string>("MailTo")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailMessages");
+                });
+
             modelBuilder.Entity("Domain.Movie", b =>
                 {
                     b.Property<Guid>("Id")
@@ -363,7 +386,7 @@ namespace Repository.Data
 
             modelBuilder.Entity("Domain.OrderItem", b =>
                 {
-                    b.HasOne("Domain.Cart", null)
+                    b.HasOne("Domain.Cart", "Cart")
                         .WithMany("CartItems")
                         .HasForeignKey("CartId");
 

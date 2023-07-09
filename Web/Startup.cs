@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
+using EShop.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -19,9 +21,12 @@ namespace Web
 {
     public class Startup
     {
+        private EmailSettings emailSettings;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            emailSettings = new EmailSettings();
+            Configuration.GetSection("EmailSettings").Bind(emailSettings);
         }
 
         public IConfiguration Configuration { get; }
@@ -40,6 +45,12 @@ namespace Web
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ITicketRepository), typeof(TicketRepository));
             services.AddScoped(typeof(IUserService), typeof(UserService));
+            
+            
+            services.AddScoped<EmailSettings>(es => emailSettings);
+            services.AddScoped<IEmailService, EmailService>(email => new EmailService(emailSettings));
+            services.AddScoped<IBackgroundEmailSender, BackgroundEmailSender>();
+            services.AddHostedService<EmailScopedHostedService>();
 
             services.AddTransient<ITicketService, TicketService>();
             services.AddTransient<IMovieService, MovieService>();
