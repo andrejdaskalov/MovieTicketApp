@@ -26,7 +26,8 @@ namespace Service
                 var emailMessage = new MimeMessage
                 {
                     Sender = new MailboxAddress(_settings.SendersName, _settings.SmtpUserName),
-                    Subject = item.Subject
+                    Subject = item.Subject,
+                    
                 };
 
                 emailMessage.From.Add(new MailboxAddress(_settings.EmailDisplayName, _settings.SmtpUserName));
@@ -34,6 +35,7 @@ namespace Service
                 emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Plain) { Text = item.Content };
 
                 emailMessage.To.Add(new MailboxAddress(item.MailTo, item.MailTo));
+                // emailMessage.Cc
 
                 messages.Add(emailMessage);
             }
