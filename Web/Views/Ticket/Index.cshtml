@@ -3,9 +3,12 @@
     ViewData["Title"] = "All tickets";
 }
 <div class="container">
-    
-    <a asp-controller="Ticket" asp-action="Create" class="btn btn-info mb-5">Add new ticket</a>
 
+    <a asp-controller="Ticket" asp-action="Create" class="btn btn-info mb-5">Add new ticket</a>
+    <form method="get" class="mb-2">
+        <input class="form-control mb-1" type="date" name="date" placeholder="Filter by Date">
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
     @foreach (var ticket in Model)
     {
         <div class="card mb-3">
@@ -18,12 +21,19 @@
                 <p>Seat #: @ticket.Seat</p>
                 <p>Movie Duration @ticket.Movie.Duration</p>
             </div>
-            <div class="card-footer">
-                <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="Edit" asp-route-id="@ticket.Id">Edit</a>
-                <a class="btn btn-danger" asp-controller="Ticket" asp-action="Delete" asp-route-id="@ticket.Id">Delete</a>
+            <div class="card-footer d-flex justify-content-between align-items-start">
+                <div>
+                    <a class="btn btn-outline-primary" asp-controller="Ticket" asp-action="Edit" asp-route-id="@ticket.Id">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Ticket" asp-action="Delete" asp-route-id="@ticket.Id">Delete</a>
+                </div>
+                <div>
+                    <form asp-controller="Cart" asp-action="AddToCart">
+                        <input type="hidden" name="id" value="@ticket.Id" />
+                        <input class="form-control" type="number" min="1" max="10" name="quantity" value="1" />
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </form>
+                </div>
             </div>
         </div>
     }
 </div>
- 
-

@@ -7,7 +7,7 @@ using Service;
 
 namespace Web.Controller
 {
-    [Route("Ticket")]
+    [Route("")]
     public class TicketController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ITicketService _ticketService;
@@ -21,10 +21,18 @@ namespace Web.Controller
 
         // GET
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index([FromQuery] DateTime? date)
         {
-            var allTickets = _ticketService.GetAllTicketAsList();
-            return View(allTickets);
+            if (date == null)
+            {
+                var allTickets = _ticketService.GetAllTicketAsList();
+                return View(allTickets);
+            }
+            else
+            {
+                var allTickets = _ticketService.GetAllTicketAsList(date);
+                return View(allTickets);
+            }
         }
 
         [HttpGet("Create")]

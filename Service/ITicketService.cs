@@ -12,5 +12,6 @@ namespace Service
         public MovieTicket UpdateExistingTicket(MovieTicket updatedTicket);
         public MovieTicket DeleteTicket(Guid? id);
         public Boolean TicketExist(Guid? id);
+        public List<MovieTicket> GetAllTicketAsList(DateTime? date);
     }
 }

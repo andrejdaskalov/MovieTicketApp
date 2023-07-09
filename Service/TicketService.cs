@@ -19,6 +19,7 @@ namespace Service
         {
             return _repository.GetAll().ToList();
         }
+        
 
         public MovieTicket GetSpecificTicket(Guid? id)
         {
@@ -48,6 +49,14 @@ namespace Service
         public bool TicketExist(Guid? id)
         {
             return _repository.Get(id) != null;
+        }
+
+        public List<MovieTicket> GetAllTicketAsList(DateTime? date)
+        {
+           return _repository.GetAll().Where(t => t.Date.Year.Equals(date?.Year) && 
+                                                  t.Date.Month.Equals(date?.Month) &&
+                                                  t.Date.Day.Equals(date?.Day))
+               .ToList(); 
         }
     }
 }

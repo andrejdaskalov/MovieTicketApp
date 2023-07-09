@@ -44,9 +44,17 @@
               "target": "Package",
               "version": "[3.1.32, )"
             },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.18, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[41.23.0, )"
             }
           },
           "imports": [

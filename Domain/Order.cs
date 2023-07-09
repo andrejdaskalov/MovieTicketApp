@@ -5,7 +5,7 @@ namespace Domain
 {
     public class Order : BaseEntity
     {
-        public ICollection<OrderItem> OrderItems { get; set; }
-        public IdentityUser User { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual IdentityUser User { get; set; }
     }
 }

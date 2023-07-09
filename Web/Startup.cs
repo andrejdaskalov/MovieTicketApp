@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository;
 using Service;
+using Stripe;
 
 namespace Web
 {
@@ -32,21 +33,26 @@ namespace Web
             //     options.UseSqlite(
             //         Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("PgConnection")));
+                options.UseLazyLoadingProxies().UseNpgsql(Configuration.GetConnectionString("PgConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(ITicketRepository), typeof(TicketRepository));
+            services.AddScoped(typeof(IUserService), typeof(UserService));
+
             services.AddTransient<ITicketService, TicketService>();
             services.AddTransient<IMovieService, MovieService>();
+            services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IOrderService, OrderService>();
+            // services.AddTransient<IUserService, UserService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -75,6 +81,43 @@ namespace Web
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
             });
+            
+            // database seeding
+            // CreateRoles(serviceProvider).Wait();
+            
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+            
+        }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            string[] roleNames = { "Admin" };
+            IdentityResult roleResult;
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await roleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
+            var poweruser = new IdentityUser
+            {
+                UserName = Configuration["AppSettings:UserName"],
+                Email = Configuration["AppSettings:UserEmail"]
+            };
+            string userPassword = Configuration["AppSettings:UserPassword"];
+            var user = await userManager.FindByEmailAsync(Configuration["AppSettings:UserEmail"]);
+            if (user == null)
+            {
+                var createPowerUser = await userManager.CreateAsync(poweruser, userPassword);
+                if (createPowerUser.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(poweruser, "Admin");
+                }
+            }
         }
     }
 }

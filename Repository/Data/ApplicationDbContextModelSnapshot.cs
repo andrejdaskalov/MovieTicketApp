@@ -19,6 +19,25 @@ namespace Repository.Data
                 .HasAnnotation("ProductVersion", "3.1.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("Domain.Cart", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("Domain.Movie", b =>
                 {
                     b.Property<Guid>("Id")
@@ -98,6 +117,9 @@ namespace Repository.Data
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("CartId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid?>("MovieTicketId")
                         .HasColumnType("uuid");
 
@@ -108,6 +130,8 @@ namespace Repository.Data
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("MovieTicketId");
 
@@ -314,6 +338,13 @@ namespace Repository.Data
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Domain.Cart", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("Domain.MovieTicket", b =>
                 {
                     b.HasOne("Domain.Movie", "Movie")
@@ -332,6 +363,10 @@ namespace Repository.Data
 
             modelBuilder.Entity("Domain.OrderItem", b =>
                 {
+                    b.HasOne("Domain.Cart", null)
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId");
+
                     b.HasOne("Domain.MovieTicket", "MovieTicket")
                         .WithMany()
                         .HasForeignKey("MovieTicketId");
