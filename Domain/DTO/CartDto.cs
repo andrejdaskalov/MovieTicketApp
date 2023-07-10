@@ -6,9 +6,10 @@ namespace Domain.DTO
 {
     public class CartDto
     {
-        public IEnumerable<OrderItemDto> OrderItems { get; set; }
+        public IList<OrderItemDto> OrderItems { get; set; }
         public int TotalPrice { get; set; }
         public Guid Id { get; set; }
+        public string UserId { get; set; }
         
     }
 }

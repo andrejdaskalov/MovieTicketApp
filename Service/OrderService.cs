@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Domain;
 using Repository;
 
@@ -28,7 +29,8 @@ namespace Service
             {
                 Id = cart.Id,
                 OrderItems = cart.CartItems,
-                User = cart.User
+                User = cart.User,
+                TotalPrice = cart.TotalPrice
             });
             _cartRepository.Delete(cart);
             
@@ -42,6 +44,11 @@ namespace Service
             _mailRepository.Insert(emailMessage);
             
             return order;
+        }
+        
+        public Order GetOrderById(Guid id)
+        {
+            return _orderRepository.Get(id);
         }
     }
 }

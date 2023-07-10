@@ -8,6 +8,7 @@
     <ItemGroup>
         <PackageReference Include="ClosedXML" Version="0.102.0" />
         <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+        <PackageReference Include="GemBox.Document" Version="33.0.1317" />
         <PackageReference Include="GemBox.Pdf" Version="17.0.1371" />
         <PackageReference Include="GemBox.Spreadsheet" Version="49.0.1398" />
         <PackageReference Include="MailKit" Version="3.2.0" />
@@ -32,6 +33,10 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="VIews.tmp\Ticket\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Payment\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="files\" />
     </ItemGroup>
 
 </Project>

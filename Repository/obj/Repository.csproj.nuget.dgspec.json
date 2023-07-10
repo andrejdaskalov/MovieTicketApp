@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[3.6.0, )"
             },
+            "GemBox.Document": {
+              "target": "Package",
+              "version": "[33.0.1317, )"
+            },
             "GemBox.Pdf": {
               "target": "Package",
               "version": "[17.0.1371, )"
@@ -156,6 +160,10 @@
             "ExcelDataReader": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "GemBox.Document": {
+              "target": "Package",
+              "version": "[33.0.1317, )"
             },
             "GemBox.Pdf": {
               "target": "Package",

@@ -7,5 +7,6 @@ namespace Domain
     {
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual IdentityUser User { get; set; }
+        public int TotalPrice { get; set; }
     }
 }

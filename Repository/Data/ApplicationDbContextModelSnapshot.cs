@@ -124,6 +124,9 @@ namespace Repository.Data
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("integer");
+
                     b.Property<string>("UserId")
                         .HasColumnType("text");
 

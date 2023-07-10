@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Domain;
 
 namespace Service
@@ -7,5 +8,6 @@ namespace Service
     {
         public Order CreateOrder(Cart cart);
         public IEnumerable<Order> GetAllOrders();
+        public Order GetOrderById(Guid id);
     }
 }

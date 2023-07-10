@@ -1,10 +1,17 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Domain.DTO;
+using ExcelDataReader;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Web.Controller
 {
@@ -119,6 +126,74 @@ namespace Web.Controller
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Ticket");
+        }
+        
+        
+        [HttpGet,Authorize(Roles = "Admin")]
+        public IActionResult ImportUsers()
+        {
+            return View();
+        }
+
+        [HttpPost, Authorize(Roles = "Admin")]
+        public IActionResult ImportUsers(IFormFile file)
+        {
+
+            //make a copy
+            string pathToUpload = $"{Directory.GetCurrentDirectory()}\\files\\{file.FileName}";
+
+
+            using(FileStream fileStream = System.IO.File.Create(pathToUpload))
+            {
+                file.CopyTo(fileStream);
+
+                fileStream.Flush();
+            }
+
+            //read data from uploaded file
+
+            var users = GetUsersFromExcelFile(file.FileName);
+            foreach (var user in users)
+            {
+               userManager.CreateAsync(new IdentityUser()
+               {
+                   UserName = user.Email,
+                   Email = user.Email,
+                   EmailConfirmed = true,
+                   PhoneNumberConfirmed = true
+               }, user.Password).Wait(); 
+            }
+
+            return RedirectToAction("Index", "Admin");
+        }
+
+        private List<UserRegistrationDto> GetUsersFromExcelFile(string fileName)
+        {
+
+            string pathToFile = $"{Directory.GetCurrentDirectory()}\\files\\{fileName}";
+
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            List<UserRegistrationDto> userList = new List<UserRegistrationDto>();
+
+            using(var stream = System.IO.File.Open(pathToFile, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    while(reader.Read())
+                    {
+                        userList.Add(new UserRegistrationDto()
+                        {
+                            Email = reader.GetValue(0).ToString(),
+                            Password = reader.GetValue(1).ToString(),
+                            ConfirmPassword = reader.GetValue(1).ToString()
+                        });
+                    }
+                }
+            }
+
+            return userList;
+
         }
     }
 }

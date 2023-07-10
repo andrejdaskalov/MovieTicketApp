@@ -199,3 +199,11 @@ C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\win
 C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
 C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
+C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Razor\Views\Account\ImportUsers.cshtml.g.cs
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\GemBox.Document.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\GemBox.Document.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

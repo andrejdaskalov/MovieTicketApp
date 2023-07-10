@@ -9,6 +9,15 @@
         <input class="form-control mb-1" type="date" name="date" placeholder="Filter by Date">
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>
+    @if (User.IsInRole("Admin"))
+    {
+        <form asp-controller="Ticket" asp-action="ExportAllTickets">
+            <h3 class="h3">Export all tickets by genre</h3>
+            <label for="genre" class="form-label">Genre</label>
+            <input type="text" name="genre" id="genre" class="form-control"/>
+            <button type="submit" class="btn btn-outline-danger mb-5">Export all tickets</button>
+        </form>
+    }
     @foreach (var ticket in Model)
     {
         <div class="card mb-3">
