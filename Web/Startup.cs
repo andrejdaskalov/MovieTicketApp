@@ -94,7 +94,7 @@ namespace Web
             });
             
             // database seeding
-            // CreateRoles(serviceProvider).Wait();
+            CreateRoles(serviceProvider).Wait();
             
             StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             

@@ -1,4 +1,6 @@
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.json
+C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.dev.json
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.dll
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Domain.dll
@@ -11,6 +13,4 @@ C:\Users\Andrej\RiderProjects\TicketApp\Repository\obj\Debug\netcoreapp3.1\Repos
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\obj\Debug\netcoreapp3.1\Repository.dll
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
-C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.json
-C:\Users\Andrej\RiderProjects\TicketApp\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.dev.json
 C:\Users\Andrej\RiderProjects\TicketApp\Repository\obj\Debug\netcoreapp3.1\Repository.genruntimeconfig.cache
