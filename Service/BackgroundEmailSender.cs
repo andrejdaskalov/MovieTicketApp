@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Domain;
-using EShop.Service.Interface;
 using Repository;
 
 namespace Service

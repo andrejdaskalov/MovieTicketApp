@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
-using EShop.Service.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Repository;
 using Service;
 using Stripe;
@@ -56,7 +58,30 @@ namespace Web
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<ICartService, CartService>();
             services.AddTransient<IOrderService, OrderService>();
-            // services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IJwtService, JwtService>();
+            //// services.AddTransient<IUserService, UserService>();
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = Configuration["JwtSettings:Issuer"],
+                    ValidAudience = Configuration["JwtSettings:Audience"],
+                    IssuerSigningKey =
+                        new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration["JwtSettings:Key"])),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true
+                };
+            });
+            
+            services.AddAuthorization();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -69,6 +94,7 @@ namespace Web
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                IdentityModelEventSource.ShowPII = true;
             }
             else
             {

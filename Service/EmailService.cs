@@ -2,7 +2,6 @@
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Domain;
-using EShop.Service.Interface;
 using MailKit.Security;
 using MimeKit;
 

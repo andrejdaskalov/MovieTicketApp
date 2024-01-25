@@ -207,3 +207,10 @@ C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Web.csproj.C
 C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Web.dll
 C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Web.pdb
 C:\Users\Andrej\RiderProjects\TicketApp\Web\obj\Debug\netcoreapp3.1\Web.genruntimeconfig.cache
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Andrej\RiderProjects\TicketApp\Web\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Domain;
 using Domain.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
@@ -10,6 +11,7 @@ namespace Web.Controller.Api
 {
     [Route("api/tickets")]
     [ApiController]
+    [Authorize]
     public class TicketApiController : ControllerBase
     {
         private readonly ITicketService _ticketService;

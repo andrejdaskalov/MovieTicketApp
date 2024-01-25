@@ -11,6 +11,7 @@
       <PackageReference Include="GemBox.Pdf" Version="17.0.1371" />
       <PackageReference Include="GemBox.Spreadsheet" Version="49.0.1398" />
       <PackageReference Include="MailKit" Version="3.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.32" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.32" />
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.0" />
