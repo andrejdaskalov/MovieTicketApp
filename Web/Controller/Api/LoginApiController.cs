@@ -1,4 +1,9 @@
-﻿using Domain.DTO;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
+using Domain.DTO;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
@@ -9,16 +14,41 @@ namespace Web.Controller.Api
     public class LoginApiController
     {
         private readonly IJwtService _jwtService;
-
-        public LoginApiController(IJwtService jwtService)
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        public LoginApiController(IJwtService jwtService, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _jwtService = jwtService;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            
         }
         
         [HttpPost]
-        public ActionResult<string> Login([FromBody] UserLoginDto userLoginDto)
+        public async Task<ActionResult<string>> Login([FromBody] UserLoginDto userLoginDto)
         {
-            return _jwtService.GenerateToken(userLoginDto);
+            var user = await _userManager.FindByEmailAsync(userLoginDto.Email);
+            // if (user != null && !user.EmailConfirmed)
+            // {
+            //     ModelState.AddModelError("message", "Email not confirmed yet");
+            //     return View(model);
+            //
+            // }
+            if (await _userManager.CheckPasswordAsync(user, userLoginDto.Password) == false)
+            {
+                return new UnauthorizedResult();
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(userLoginDto.Email, userLoginDto.Password, true, true);
+
+            if (result.Succeeded)
+            {
+                return _jwtService.GenerateToken(userLoginDto);
+            }
+            else
+            {
+                return new UnauthorizedResult();
+            }
         }
     }
 }

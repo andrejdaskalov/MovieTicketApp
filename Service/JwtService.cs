@@ -11,7 +11,6 @@ namespace Service
 {
     public class JwtService : IJwtService
     {
-        // private string SecretKey = "JwtKey123*";
         private readonly IConfiguration _config;
         public JwtService(IConfiguration config)
         {

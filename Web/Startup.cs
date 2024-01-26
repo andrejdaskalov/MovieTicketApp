@@ -24,6 +24,8 @@ namespace Web
     public class Startup
     {
         private EmailSettings emailSettings;
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +38,16 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
             // services.AddDbContext<ApplicationDbContext>(options =>
             //     options.UseSqlite(
             //         Configuration.GetConnectionString("DefaultConnection")));
@@ -103,6 +115,8 @@ namespace Web
                 app.UseHsts();
             }
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -116,7 +130,7 @@ namespace Web
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
-                );
+                ).RequireCors(MyAllowSpecificOrigins);
             });
             
             // database seeding
