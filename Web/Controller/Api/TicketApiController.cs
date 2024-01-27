@@ -31,10 +31,10 @@ namespace Web.Controller.Api
                 _ticketService.GetAllTicketAsList(date);
             return allTickets.Select(ticket => new TicketDto()
             {
-                Id = ticket.Id,
+                Id = ticket.Id.ToString(),
                 MovieTitle = _movieService.GetSpecificMovie(ticket.MovieId).Title,
                 Seat = ticket.Seat,
-                Price = ticket.Price,
+                Price = ticket.Price.ToString(),
                 Date = ticket.Date
             }).ToList();
         }
@@ -50,18 +50,18 @@ namespace Web.Controller.Api
 
             return new TicketDto()
             {
-                Id = ticket.Id,
+                Id = ticket.Id.ToString(),
                 MovieTitle = _movieService.GetSpecificMovie(ticket.MovieId).Title,
                 Seat = ticket.Seat,
-                Price = ticket.Price,
+                Price = ticket.Price.ToString(),
                 Date = ticket.Date
             };
         }
 
         [HttpPost]
-        public ActionResult<TicketDto> Post([FromBody] TicketDto ticket)
+        public ActionResult Post([FromBody] TicketDto ticket)
         {
-            var selectedMovie = _movieService.GetSpecificMovie(ticket.SelectedMovie);
+            var selectedMovie = _movieService.GetSpecificMovie(Guid.Parse(ticket.SelectedMovie));
             if (selectedMovie == null)
             {
                 return BadRequest();
@@ -71,17 +71,14 @@ namespace Web.Controller.Api
                 MovieId = selectedMovie.Id,
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price
+                Price = Int32.Parse(ticket.Price)
             };
-             _ticketService.CreateNewTicket(newTicket);
-             return new TicketDto()
+             var movieTicket = _ticketService.CreateNewTicket(newTicket);
+             if (movieTicket == null)
              {
-                 Id = newTicket.Id,
-                 MovieTitle = _movieService.GetSpecificMovie(newTicket.MovieId).Title,
-                 Seat = newTicket.Seat,
-                 Price = newTicket.Price,
-                 Date = newTicket.Date
-             };
+                 return new BadRequestResult();
+             }
+             return new OkResult();
         }
 
         [HttpPut("{id:guid}")]
@@ -95,24 +92,37 @@ namespace Web.Controller.Api
 
             updatedTicket.Date = ticket.Date;
             updatedTicket.Seat = ticket.Seat;
-            updatedTicket.Price = ticket.Price;
-            updatedTicket.MovieId = ticket.SelectedMovie;
-            _ticketService.UpdateExistingTicket(updatedTicket);
-
-            return new TicketDto()
+            updatedTicket.Price = Int32.Parse(ticket.Price);
+            updatedTicket.MovieId = Guid.Parse(ticket.SelectedMovie);
+            var movieTicket = _ticketService.UpdateExistingTicket(updatedTicket);
+            if (movieTicket == null)
             {
-                Id = updatedTicket.Id,
-                MovieTitle = _movieService.GetSpecificMovie(updatedTicket.MovieId).Title,
-                Seat = updatedTicket.Seat,
-                Price = updatedTicket.Price,
-                Date = updatedTicket.Date
-            };
+                return new BadRequestResult();
+            }
+
+            return new OkResult();
         }
 
         [HttpDelete("{id:guid}")]
-        public void Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
-            _ticketService.DeleteTicket(id);
+            var movieTicket = _ticketService.DeleteTicket(id);
+            if (movieTicket == null)
+            {
+                return NotFound();
+            }
+
+            return new OkResult();
+        }
+        
+        [HttpGet("getAllMovies")]
+        public IEnumerable<MovieDto> GetAllMovies()
+        {
+            return _movieService.GetAllMovies().Select(m => new MovieDto
+            {
+                Title = m.Title,
+                Id = m.Id.ToString()
+            });
         }
     }
 }

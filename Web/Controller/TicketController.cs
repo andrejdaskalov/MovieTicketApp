@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace Web.Controller
-{
+{ 
     [Route("")]
     public class TicketController : Microsoft.AspNetCore.Mvc.Controller
     {
@@ -48,13 +48,13 @@ namespace Web.Controller
         [HttpPost("Create")]
         public IActionResult Create(Domain.DTO.TicketDto ticket)
         {
-            var selectedMovie = _movieService.GetSpecificMovie(ticket.SelectedMovie);
+            var selectedMovie = _movieService.GetSpecificMovie(Guid.Parse(ticket.SelectedMovie));
             MovieTicket newTicket = new MovieTicket()
             {
                 MovieId = selectedMovie.Id,
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price
+                Price = Int32.Parse(ticket.Price)
             };
             _ticketService.CreateNewTicket(newTicket);
             return RedirectToAction("Index");
@@ -77,11 +77,11 @@ namespace Web.Controller
             IEnumerable<Movie> movies = _movieService.GetAllMovies();
             var ticketDto = new Domain.DTO.TicketDto()
             {
-                SelectedMovie = ticket.Movie.Id,
+                SelectedMovie = ticket.Movie.Id.ToString(),
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price,
-                MovieOptions = movies
+                Price = ticket.Price.ToString(),
+                // MovieOptions = movies
             };
 
             return View(ticketDto);
@@ -98,8 +98,8 @@ namespace Web.Controller
 
             updatedTicket.Date = ticket.Date;
             updatedTicket.Seat = ticket.Seat;
-            updatedTicket.Price = ticket.Price;
-            updatedTicket.MovieId = ticket.SelectedMovie;
+            updatedTicket.Price = Int32.Parse(ticket.Price);
+            updatedTicket.MovieId = Guid.Parse(ticket.SelectedMovie);
             _ticketService.UpdateExistingTicket(updatedTicket);
 
             return RedirectToAction("Index");
@@ -124,8 +124,8 @@ namespace Web.Controller
                 MovieTitle = ticket.Movie.Title,
                 Date = ticket.Date,
                 Seat = ticket.Seat,
-                Price = ticket.Price,
-                Id = ticket.Id
+                Price = ticket.Price.ToString(),
+                Id = ticket.Id.ToString()
             };
 
             return View(ticketDto);

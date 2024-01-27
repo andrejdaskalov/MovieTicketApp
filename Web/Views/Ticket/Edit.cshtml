@@ -7,10 +7,10 @@
         <div class="form-group">
             <label for="movie">Movie</label>
             <select class="form-control" id="movie" name="selectedmovie">
-                @foreach (var item in Model.MovieOptions)
-                {
-                    <option value="@item.Id" selected="@item.Id.Equals(Model.SelectedMovie)">@item.Title</option>
-                }
+                @* @foreach (var item in Model.MovieOptions) *@
+                @* { *@
+                @*     <option value="@item.Id" selected="@item.Id.Equals(Model.SelectedMovie)">@item.Title</option> *@
+                @* } *@
             </select>
         </div>
         <div class="form-group">

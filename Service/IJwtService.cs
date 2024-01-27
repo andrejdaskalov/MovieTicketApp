@@ -4,6 +4,6 @@ namespace Service
 {
     public interface IJwtService
     {
-        public string GenerateToken(UserLoginDto user);
+        public string GenerateToken(JwtDto user);
     }
 }

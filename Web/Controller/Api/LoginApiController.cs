@@ -43,7 +43,12 @@ namespace Web.Controller.Api
 
             if (result.Succeeded)
             {
-                return _jwtService.GenerateToken(userLoginDto);
+                var jwtDto = new JwtDto
+                {
+                    Email = userLoginDto.Email,
+                    Role = await _userManager.IsInRoleAsync(user, "Admin") ? "Admin" : "User"
+                };
+                return _jwtService.GenerateToken(jwtDto);
             }
             else
             {
