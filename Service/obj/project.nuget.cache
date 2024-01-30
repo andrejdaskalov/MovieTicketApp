@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+zHcI3JIqJ4QDhJN/k/mi9FrSD7GOOEvHUZxsTfu9oNXoTtcLEgPxcD7bEcsqYwFqJuiwoZGwk0Cjnq+DPQSAQ==",
+  "dgSpecHash": "8quae2fW/cnKRii9F7Z1iro43vxzBuTIPcSyiVYOJpA/oLvHNEAA3/vYcRRFISOfKRmve/Q/tMAF585KWLSiMw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andrej\\RiderProjects\\TicketApp\\Service\\Service.csproj",
   "expectedPackageFiles": [
@@ -54,7 +54,7 @@
     "C:\\Users\\Andrej\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\mimekit\\3.2.0\\mimekit.3.2.0.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\Andrej\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Andrej\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\npgsql\\4.1.9\\npgsql.4.1.9.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\3.1.18\\npgsql.entityframeworkcore.postgresql.3.1.18.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\openxmlpowertools\\4.5.3.2\\openxmlpowertools.4.5.3.2.nupkg.sha512",
@@ -80,7 +80,7 @@
     "C:\\Users\\Andrej\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
-    "C:\\Users\\Andrej\\.nuget\\packages\\stripe.net\\41.23.0\\stripe.net.41.23.0.nupkg.sha512",
+    "C:\\Users\\Andrej\\.nuget\\packages\\stripe.net\\43.12.0\\stripe.net.43.12.0.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Andrej\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

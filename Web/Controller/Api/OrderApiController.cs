@@ -53,6 +53,7 @@ namespace Web.Controller.Api
             return ordersDto;
         }
 
+        [HttpGet("{id:guid}")]
         public IActionResult CreateInvoice(Guid id)
         {
             var order = _orderService.GetOrderById(id);

@@ -25,7 +25,7 @@ namespace Web.Controller.Api
         public ActionResult<CartDto> ViewCart()
         {
             //get current user
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             //get cart
             var cart = _cartService.GetCart(userId);
             var cartItems = _cartService.GetCartItems(userId);
@@ -52,11 +52,11 @@ namespace Web.Controller.Api
             return cartDto;
         }
 
-        [HttpPost]
-        public ActionResult<CartDto> AddToCart(Guid? id, int quantity)
+        [HttpPost("{id:guid}")]
+        public ActionResult<CartDto> AddToCart(Guid? id, [FromBody] int quantity)
         {
             //get current user
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId =   User.FindFirstValue(ClaimTypes.NameIdentifier);
             //get ticket
             var ticket = _ticketService.GetSpecificTicket(id);
             _cartService.AddToCart(userId, ticket, quantity);
@@ -71,11 +71,11 @@ namespace Web.Controller.Api
             };
         }
         
-        [HttpGet]
+        [HttpDelete("{id:guid}")]
         public ActionResult<CartDto> RemoveFromCart(Guid? id)
         {
             //get current user
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             //get ticket
             var ticket = _ticketService.GetSpecificTicket(id);
             _cartService.DeleteFromCart(userId, ticket);
@@ -91,11 +91,11 @@ namespace Web.Controller.Api
 
         }
         
-        [HttpGet]
+        [HttpDelete("deleteAll")]
         public ActionResult<CartDto> RemoveAllFromCart()
         {
             //get current user
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             _cartService.DeleteAllFromCart(userId);
 
             var cart = _cartService.GetCart(userId);
@@ -109,11 +109,11 @@ namespace Web.Controller.Api
             };
         }
 
-        [HttpPost]
-        public ActionResult<CartDto> UpdateAmount(Guid? id, int amount)
+        [HttpPut("{id:guid}")]
+        public ActionResult<CartDto> UpdateAmount(Guid? id, [FromBody] int amount)
         {
             //get current user
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             //get ticket
             var ticket = _ticketService.GetSpecificTicket(id);
             _cartService.ChangeQuantity(userId, ticket, amount);

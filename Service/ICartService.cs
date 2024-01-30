@@ -12,5 +12,7 @@ namespace Service
         public void ChangeQuantity(string username, MovieTicket ticket, int quantity);
 
         public IEnumerable<OrderItem> GetCartItems(string username);
+        
+        public void DeleteCart(Cart cart);
     }
 }

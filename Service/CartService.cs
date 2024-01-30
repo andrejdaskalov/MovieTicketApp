@@ -48,6 +48,12 @@ namespace Service
             return cart.CartItems;
         }
 
+        public void DeleteCart(Cart cart)
+        {
+            _cartRepository.Delete(cart);
+        }
+        
+
         public void AddToCart(string username, MovieTicket ticket, int quantity)
         {
             var item = new OrderItem

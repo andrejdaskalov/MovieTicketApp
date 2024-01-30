@@ -895,7 +895,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -1217,7 +1217,7 @@
           }
         }
       },
-      "Stripe.net/41.23.0": {
+      "Stripe.net/43.12.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
@@ -2711,9 +2711,10 @@
           "Microsoft.EntityFrameworkCore.Proxies": "3.1.32",
           "Microsoft.Extensions.Hosting.Abstractions": "3.1.0",
           "MimeKit": "3.2.0",
+          "Newtonsoft.Json": "13.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.18",
           "OpenXmlPowerTools": "4.5.3.2",
-          "Stripe.net": "41.23.0"
+          "Stripe.net": "43.12.0"
         },
         "compile": {
           "bin/placeholder/Domain.dll": {}
@@ -3849,14 +3850,15 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.3",
+      "path": "newtonsoft.json/13.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+        "README.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -3865,17 +3867,15 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
@@ -4328,10 +4328,10 @@
         "skiasharp.nativeassets.win32.nuspec"
       ]
     },
-    "Stripe.net/41.23.0": {
-      "sha512": "bl8OcS6aYXCwWXON2cC2wy7/oF2GWHDG3dJ036SjzOp97yMJyeGTEGP+aReWr2LCCq3Dtbe4YX8oLDz1zSn1AA==",
+    "Stripe.net/43.12.0": {
+      "sha512": "0cDEW1/wRJqXpBRcsZcDhQDHK1cEtdtYsh3bfW0hP/2TQQRvuXNzsV3N90coEO3/ziEhcx1FEZW3anwFdFFo/g==",
       "type": "package",
-      "path": "stripe.net/41.23.0",
+      "path": "stripe.net/43.12.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4347,7 +4347,7 @@
         "lib/netcoreapp3.1/Stripe.net.xml",
         "lib/netstandard2.0/Stripe.net.dll",
         "lib/netstandard2.0/Stripe.net.xml",
-        "stripe.net.41.23.0.nupkg.sha512",
+        "stripe.net.43.12.0.nupkg.sha512",
         "stripe.net.nuspec"
       ]
     },
@@ -8363,9 +8363,10 @@
       "Microsoft.EntityFrameworkCore.Proxies >= 3.1.32",
       "Microsoft.Extensions.Hosting.Abstractions >= 3.1.0",
       "MimeKit >= 3.2.0",
+      "Newtonsoft.Json >= 13.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.18",
       "OpenXmlPowerTools >= 4.5.3.2",
-      "Stripe.net >= 41.23.0"
+      "Stripe.net >= 43.12.0"
     ]
   },
   "packageFolders": {
@@ -8461,6 +8462,10 @@
             "target": "Package",
             "version": "[3.2.0, )"
           },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
+          },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[3.1.18, )"
@@ -8471,7 +8476,7 @@
           },
           "Stripe.net": {
             "target": "Package",
-            "version": "[41.23.0, )"
+            "version": "[43.12.0, )"
           }
         },
         "imports": [
