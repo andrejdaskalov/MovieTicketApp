@@ -24,7 +24,7 @@ namespace Service
             var claims = new[]
             {
                 new Claim("Email",user.Email),
-                new Claim("Role",user.Role),
+                new Claim(ClaimTypes.Role, user.Role),
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email)
             };
             var token = new JwtSecurityToken(_config["JwtSettings:Issuer"],
