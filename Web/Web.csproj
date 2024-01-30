@@ -35,10 +35,21 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="VIews.tmp\Ticket\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Payment\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cart\ViewCart.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Order\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_LoginPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Ticket\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Ticket\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Ticket\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Ticket\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="files\" />
+      <Folder Include="Views\" />
     </ItemGroup>
 
 </Project>
