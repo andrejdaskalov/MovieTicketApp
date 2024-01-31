@@ -19,6 +19,11 @@ namespace Service
         public async Task DoWork()
         {
             await _emailService.SendEmailAsync(_mailRepository.GetAll().Where(z => !z.Status).ToList());
+            _mailRepository.GetAll().Where(z => !z.Status).ToList().ForEach(z =>
+            {
+                z.Status = true;
+                _mailRepository.Update(z);
+            });
         }
     }
 }
