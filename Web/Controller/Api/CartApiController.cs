@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using Domain.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace Web.Controller.Api
 {
-    // [Authorize]
+    [Authorize]
     [Route("api/cart")]
     [ApiController]
     public class CartApiController : ControllerBase

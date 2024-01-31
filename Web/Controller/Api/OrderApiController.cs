@@ -4,12 +4,14 @@ using System.IO;
 using System.Linq;
 using Domain.DTO;
 using GemBox.Document;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 using ComponentInfo = GemBox.Document.ComponentInfo;
 
 namespace Web.Controller.Api
 {
+    [Authorize]
     [Route("api/orders")]
     [ApiController]
     public class OrderApiController : ControllerBase

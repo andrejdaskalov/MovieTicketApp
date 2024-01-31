@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Domain.DTO;
 using Microsoft.AspNetCore.Identity;
 
 namespace Service
@@ -15,5 +16,6 @@ namespace Service
        public IEnumerable<IdentityUser> GetAllUsers();
        public string GetUserRole(IdentityUser user);
        // public IdentityUser GetUsersFromXlsFile(string path);
+       List<UserRegistrationDto> GetUsersFromXlsFile(string path);
     }
 }

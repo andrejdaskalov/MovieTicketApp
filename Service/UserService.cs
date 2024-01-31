@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Office2010.Word;
+using Domain.DTO;
+using GemBox.Spreadsheet;
 using Microsoft.AspNetCore.Identity;
 
 namespace Service
@@ -66,6 +69,32 @@ namespace Service
                 return roles[0];
             }
             return "User";
+        }
+
+        public List<UserRegistrationDto> GetUsersFromXlsFile(string path)
+        {
+            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+
+            var users = new List<UserRegistrationDto>();
+
+            var workbook = ExcelFile.Load(path);
+            var worksheet = workbook.Worksheets[0];
+
+            for (int i = 1, rowCount = worksheet.Rows.Count; i < rowCount; i++)
+            {
+                var row = worksheet.Rows[i];
+
+                var user = new UserRegistrationDto
+                {
+                    Email = row.Cells[0].Value?.ToString(),
+                    Password = row.Cells[1].Value?.ToString(),
+                    ConfirmPassword = row.Cells[1].Value?.ToString(),
+                };
+
+                users.Add(user);
+            }
+
+            return users;
         }
     }
 }

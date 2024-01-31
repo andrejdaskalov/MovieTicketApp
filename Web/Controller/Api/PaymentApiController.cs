@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using Domain.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 using Stripe;
@@ -11,6 +12,7 @@ using Stripe.Checkout;
 
 namespace Web.Controller.Api
 {
+    [Authorize]
     [Route("api/payment")]
     [ApiController]
     public class PaymentApiController: ControllerBase
