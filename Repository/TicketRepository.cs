@@ -7,14 +7,16 @@ using Microsoft.EntityFrameworkCore;
 namespace Repository
 {
     public class TicketRepository : ITicketRepository
-    { 
+    {
         private readonly ApplicationDbContext _context;
         private DbSet<MovieTicket> _entities;
-        
+        private DbSet<OrderItem> _orderItemEntities;
+
         public TicketRepository(ApplicationDbContext context)
         {
             _context = context;
             _entities = _context.Set<MovieTicket>();
+            _orderItemEntities = _context.Set<OrderItem>();
         }
 
         public IEnumerable<MovieTicket> GetAll()
@@ -24,7 +26,7 @@ namespace Repository
 
         public MovieTicket Get(Guid? id)
         {
-            return _entities.Include(e=>e.Movie).First(e => e.Id.Equals(id));
+            return _entities.Include(e => e.Movie).First(e => e.Id.Equals(id));
         }
 
         public MovieTicket Insert(MovieTicket entity)
@@ -33,6 +35,7 @@ namespace Repository
             {
                 throw new System.ArgumentNullException("entity");
             }
+
             _entities.Add(entity);
             _context.SaveChanges();
 
@@ -45,6 +48,7 @@ namespace Repository
             {
                 throw new System.ArgumentNullException("entity");
             }
+
             _entities.Update(entity);
             _context.SaveChanges();
 
@@ -57,6 +61,11 @@ namespace Repository
             {
                 throw new System.ArgumentNullException("entity");
             }
+
+            _orderItemEntities.Where(item => item.MovieTicket.Id == entity.Id).ToList().ForEach(
+                item => { item.MovieTicket = null; }
+            );
+
             _entities.Remove(entity);
             _context.SaveChanges();
 

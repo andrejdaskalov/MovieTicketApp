@@ -142,7 +142,7 @@ namespace Web.Controller.Api
                 worksheet.Cell(1, 4).Value = "Seat";
                 worksheet.Cell(1, 5).Value = "Price";
 
-                for (int i = 1; i < result.Count(); i++)
+                for (int i = 1; i <= result.Count(); i++)
                 {
                     var item = result.ElementAt(i - 1);
                     worksheet.Cell(i + 1, 1).Value = item.Id.ToString();
